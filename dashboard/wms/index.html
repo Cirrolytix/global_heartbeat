@@ -29,23 +29,21 @@ map.on('load', function() {
         // use the tiles option to specify a WMS tile source URL
         // https://docs.mapbox.com/mapbox-gl-js/style-spec/sources/
         'tiles': [
-            'https://sedac.ciesin.columbia.edu/geoserver/wms?bbox={bbox-epsg-3857}&format=image/png&service=WMS&version=1.1.1&request=GetMap&srs=EPSG:3857&transparent=true&width=256&height=256&layers=sdei:sdei-viirs-dmsp-dlight'
+            'https://sedac.ciesin.columbia.edu/geoserver/wms?bbox={bbox-epsg-3857}&format=image/png&service=WMS&version=1.1.1&request=GetMap&srs=EPSG:3857&transparent=true&width=128&height=128&layers=sdei:sdei-viirs-dmsp-dlight'
         ],
-        'tileSize': 256
+        'tileSize': 128
     });
     map.addLayer({
             'id': 'wms-test-layer',
             'type': 'raster',
             'source': 'wms-test-source',
             'paint': {}
-        },
-        //'aeroway-line'
-        'country-label'
+        }
     );
 	map.setPaintProperty(
 		'wms-test-layer',
 		'raster-opacity',
-		.50
+		.70
 		);
 });
 </script>
