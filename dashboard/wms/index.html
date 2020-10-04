@@ -13,7 +13,10 @@
 </head>
 <body>
 <div id="map"></div>
+
+<script src="phjson.js"></script>
 <script>
+
 mapboxgl.accessToken = 'pk.eyJ1IjoiZG9jbGlnb3QiLCJhIjoiY2p3MHQ5MTViMGVvNzQzdGdicTlwM2o3NCJ9.j4qYChJYSxUy8hNnlXrD-g';
 var map = new mapboxgl.Map({
     container: 'map',
@@ -32,19 +35,98 @@ map.on('load', function() {
         ],
         'tileSize': 512
     });
-    map.addLayer({
+    /*map.addLayer({
             'id': 'wms-test-layer',
             'type': 'raster',
             'source': 'wms-test-source',
             'paint': {}
         }
-    );
+    );*/
 	map.setPaintProperty(
 		'wms-test-layer',
 		'raster-opacity',
 		.85
 		);
+
+    map.addSource('armm', {
+        'type': 'geojson',
+        'data': phjson.features[0]
+    });
+    map.addSource('layer1', {
+        'type': 'geojson',
+        'data': phjson.features[1]
+    });
+    map.addSource('layer2', {
+        'type': 'geojson',
+        'data': phjson.features[2]
+    });
+    map.addSource('layer3', {
+        'type': 'geojson',
+        'data': phjson.features[3]
+    });
+    map.addSource('layer4', {
+        'type': 'geojson',
+        'data': phjson.features[4]
+    });
+
+    map.addLayer({
+        'id': 'armm',
+        'type': 'fill',
+        'source': 'armm',
+        'layout': {},
+        'paint': {
+            'fill-color': '#088',
+            'fill-opacity': 0.8
+        }
+    });
+    map.addLayer({
+        'id': 'layer1',
+        'type': 'fill',
+        'source': 'layer1',
+        'layout': {},
+        'paint': {
+            'fill-color': '#088',
+            'fill-opacity': 0.8
+        }
+    });
+    map.addLayer({
+        'id': 'layer2',
+        'type': 'fill',
+        'source': 'layer2',
+        'layout': {},
+        'paint': {
+            'fill-color': '#088',
+            'fill-opacity': 0.8
+        }
+    });		
+    map.addLayer({
+        'id': 'layer3',
+        'type': 'fill',
+        'source': 'layer3',
+        'layout': {},
+        'paint': {
+            'fill-color': '#088',
+            'fill-opacity': 0.8
+        }
+    });
+    map.addLayer({
+        'id': 'layer4',
+        'type': 'fill',
+        'source': 'layer4',
+        'layout': {},
+        'paint': {
+            'fill-color': '#088',
+            'fill-opacity': 0.8
+        }
+    });
+
+
+		
+			
 });
+
+
+
 </script>
  
 </body>
