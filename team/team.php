@@ -11,7 +11,7 @@
                 <div class=\"w3-third  w3-padding-12\">
                   <img src=\"resources/images/cricketS.jpg\" style=\"width:30%\" class=\"w3-circle w3-hover-opacity\">
                   <h3>Cricket Soong</h3>
-                  <p>Emerging Technology Researcher at CirroLytix</p>
+                  <p>Emerging Technology Consultant at CirroLytix</p>
                   <a href=\"https://www.linkedin.com/in/cricketeer\" class=\"fa fa-linkedin\" style='background: #007bb5; padding: 5px' ></a>
                 </div>
                 
