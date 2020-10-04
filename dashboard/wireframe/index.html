@@ -207,31 +207,35 @@
 					function displayTable(tableArray, location) {
 						if (location <= 12) {
 							var table = '<table class="w3-table w3-striped w3-bordered">';
-							table += '<tr><th>Hazard Exposure</th><td>' + tableArray[0] + '</td>';
-							table += '<tr><th>Vulnerability</th><td>' + tableArray[1] + '</td>';
-							table += '<tr><th>Lack of Resilience</th><td>' + tableArray[2] + '</td>';
-							table += '<tr><th>COVID-19 Population</th><td>' + tableArray[3] + '</td>';
-							table += '<tr><th>Persons With Disability</th><td>' + tableArray[4] + '</td>';
-							table += '<tr><th>Dependency Ratio</th><td>' + tableArray[5] + '</td>';
-							table += '<tr><th>Human Development Index</th><td>' + tableArray[6] + '</td>';
-							table += '<tr><th>Govt Expenditure on Health</th><td>' + tableArray[7] + '</td>';
-							table += '<tr><th>People Using the Internet</th><td>' + tableArray[8] + '</td>';
+							table += '<tr><th>Region</th><td>' + tableArray[0] + '</td></tr>';
+							table += '<tr><th>Hazard Exposure</th><td>' + tableArray[1] + '</td></tr>';
+							table += '<tr><th>Vulnerability</th><td>' + tableArray[2] + '</td></tr>';
+							table += '<tr><th>Lack of Resilience</th><td>' + tableArray[3] + '</td></tr>';
+							table += '<tr><th>COVID-19 Population</th><td>' + tableArray[4] + '</td></tr>';
+							table += '<tr><th>Persons With Disability</th><td>' + tableArray[5] + '</td></tr>';
+							table += '<tr><th>Dependency Ratio</th><td>' + tableArray[6] + '</td></tr>';
+							table += '<tr><th>Human Development Index</th><td>' + tableArray[7] + '</td></tr>';
+							table += '<tr><th>Govt Expenditure on Health</th><td>' + tableArray[8] + '</td></tr>';
+							table += '<tr><th>People Using the Internet</th><td>' + tableArray[9] + '</td></tr>';
+							table += '</table>';
 							document.getElementById('tableContainer').innerHTML = table;
 						} else {
 							var table = '<table class="w3-table w3-striped w3-bordered">';
-							table += '<tr><th>Hazard Exposure</th><td>' + tableArray[0] + '</td>';
-							table += '<tr><th>Vulnerability </th><td>' + tableArray[1] + '</td>';
-							table += '<tr><th>COVID-19 Population</th><td>' + tableArray[2] + '</td>';
-							table += '<tr><th>Dengue Population</th><td>' + tableArray[3] + '</td>';
-							table += '<tr><th>Poverty Incidence</th><td>' + tableArray[4] + '</td>';
-							table += '<tr><th>Dependency Ratio</th><td>' + tableArray[5] + '</td>';
-							table += '<tr><th>Poor Individuals with Disability</th><td>' + tableArray[6] + '</td>';
-							table += '<tr><th>Literacy Rate</th><td>' + tableArray[7] + '</td>';
-							table += '<tr><th>Total Healthcare Professionals</th><td>' + tableArray[8] + '</td>';
-							table += '<tr><th>LGU Health Expenditure</th><td>' + tableArray[9] + '</td>';
-							table += '<tr><th>COVID-19 Cases</th><td>' + tableArray[10] + '</td>';
-							table += '<tr><th>Total Population</th><td>' + tableArray[11] + '</td>';
-							table += '<tr><th>Urbanization Rate</th><td>' + tableArray[12] + '</td>';
+							table += '<tr><th>Region</th><td>' + tableArray[0] + '</td></tr>';
+							table += '<tr><th>Hazard Exposure</th><td>' + tableArray[1] + '</td></tr>';
+							table += '<tr><th>Vulnerability </th><td>' + tableArray[2] + '</td></tr>';
+							table += '<tr><th>Lack of Resilience</th><td>' + tableArray[3] + '</td></tr>';
+							table += '<tr><th>COVID-19 Population</th><td>' + tableArray[4] + '</td></tr>';
+							table += '<tr><th>Dengue Population</th><td>' + tableArray[5] + '</td></tr>';
+							table += '<tr><th>Poverty Incidence</th><td>' + tableArray[6] + '</td></tr>';
+							table += '<tr><th>Dependency Ratio</th><td>' + tableArray[7] + '</td></tr>';
+							table += '<tr><th>Poor Individuals with Disability</th><td>' + tableArray[8] + '</td></tr>';
+							table += '<tr><th>Literacy Rate</th><td>' + tableArray[9] + '</td></tr>';
+							table += '<tr><th>Total Healthcare Professionals</th><td>' + tableArray[10] + '</td></tr>';
+							table += '<tr><th>LGU Health Expenditure</th><td>' + tableArray[11] + '</td></tr>';
+							table += '<tr><th>Total Population</th><td>' + tableArray[13] + '</td></tr>';
+							table += '<tr><th>Urban Index</th><td>' + tableArray[14] + '</td></tr>';
+							table += '</table>';
 							document.getElementById('tableContainer').innerHTML = table;
 						}
 					}
