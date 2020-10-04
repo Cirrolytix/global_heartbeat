@@ -14,7 +14,7 @@
 <body>
 <div id="map"></div>
 <script>
-	mapboxgl.accessToken = 'pk.eyJ1IjoiZG9jbGlnb3QiLCJhIjoiY2p3MHQ5MTViMGVvNzQzdGdicTlwM2o3NCJ9.j4qYChJYSxUy8hNnlXrD-g';
+mapboxgl.accessToken = 'pk.eyJ1IjoiZG9jbGlnb3QiLCJhIjoiY2p3MHQ5MTViMGVvNzQzdGdicTlwM2o3NCJ9.j4qYChJYSxUy8hNnlXrD-g';
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/docligot/ckftb7cmg0sb919qpb661h1qj',
@@ -22,16 +22,15 @@ var map = new mapboxgl.Map({
     center: [121.056269, 14.569240]
 });
 
-
 map.on('load', function() {
     map.addSource('wms-test-source', {
         'type': 'raster',
         // use the tiles option to specify a WMS tile source URL
         // https://docs.mapbox.com/mapbox-gl-js/style-spec/sources/
         'tiles': [
-            'https://sedac.ciesin.columbia.edu/geoserver/wms?bbox={bbox-epsg-3857}&format=image/png&service=WMS&version=1.1.1&request=GetMap&srs=EPSG:3857&transparent=true&width=256&height=256&layers=sdei:sdei-viirs-dmsp-dlight'
+            'https://sedac.ciesin.columbia.edu/geoserver/wms?bbox={bbox-epsg-3857}&format=image/png&service=WMS&version=1.1.1&request=GetMap&srs=EPSG:3857&transparent=true&width=256&height=256&layers=wildareas-v3:wildareas-v3-2009-human-footprint'
         ],
-        'tileSize': 256
+        'tileSize': 512
     });
     map.addLayer({
             'id': 'wms-test-layer',
