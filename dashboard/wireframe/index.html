@@ -7,15 +7,197 @@
 		<link rel="stylesheet" href="resources/app_css.css"/>
 		<link rel="stylesheet" href="resources/w3.css"/>	
 		<link rel="shortcut icon" href="favicon.png" type="image/x-icon"/>
+		<script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+		<link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
 	</head>
 
-
 	<body>
+		<header class="w3-top agency">
+			<div class="w3-green w3-xlarge w3-bar">
+				<img class="w3-right w3-bar-item" src="favicon.png" height=50 /><div class="w3-bar-item">Global Hazard Exposure and Resiliency Trends By Earth Observation Analysis Tools</div>
+			</div>
+		</header>
+		<div class="spacer"></div>	
+		<nav class="w3-sidebar w3-dark-grey w3-col l2 w3-bar-block">
+			<select class="w3-bar-item hover-ambient w3-select" onchange="travelTo(this.value);">
+				<option value="0">CA Ontario</option>
+				<option value="1">CA Quebec</option>
+				<option value="2">CA Alberta</option>
+				<option value="3">CA British Columbia</option>
+				<option value="4">CA Manitoba</option>
+				<option value="5">CA Saskatchewan</option>
+				<option value="6">CA Nova Scotia</option>
+				<option value="7">CA New Brunswick</option>
+				<option value="8">CA Prince Edward Island</option>
+				<option value="9">CA Newfoundland and Labrador</option>
+				<option value="10">CA Yukon</option>
+				<option value="11">CA Nunavut</option>
+				<option value="12">CA Northwest Territories</option>
+				<option value="13">PH NCR</option>
+				<option value="14">PH Ilocos</option>
+				<option value="15">PH Cagayan</option>
+				<option value="16">PH Central Luzon</option>
+				<option value="17">PH CALABARZON</option>
+				<option value="18">PH Bicol</option>
+				<option value="19">PH Western Visayas</option>
+				<option value="20">PH Central Visayas</option>
+				<option value="21">PH Eastern Visayas</option>
+				<option value="22">PH Zamboanga Peninsula</option>
+				<option value="23">PH Northern Mindanao</option>
+				<option value="24">PH Davao</option>
+				<option value="25">PH Soccskargen</option>
+				<option value="26">PH Bangsamoro</option>
+				<option value="27">PH CAR</option>
+				<option value="28">PH Caraga</option>
+				<option value="29">PH MIMAROPA</option>
+			</select>
+			<select id="mapstyle" class="w3-bar-item hover-ambient w3-select" onchange="setStyle(this.value);">
+				<option value="mapbox://styles/mapbox/dark-v10">Streets</option>
+				<option value="mapbox://styles/mapbox/satellite-v9">Terrain</option>
+				<option value="mapbox://styles/mapbox/satellite-streets-v10">Terrain Streets</option>
+			</select>
+			<select class="w3-bar-item hover-ambient w3-select" onchange="setSedac(this.value);">
+				<option value="">SEDAC: </option>
+				<option value="0">Population Count</option>
+				<option value="1">Population Density</option>
+				<option value="2">Development Threat</option>
+				<option value="3">Low Elevation Zone</option>
+				<option value="4">Drought Hazard</option>
+				<option value="5">Earthquake Hazard</option>
+				<option value="6">Flood Hazard</option>
+				<option value="7">Volcano Hazard</option>
+				<option value="8">Urban Extents</option>
+			</select>
+			<div class="w3-bar-item hover-ambient">About</div>
+		</nav>
+		<section class="w3-row">
+			<div class="w3-col l2">&nbsp;</div>
+			<div class="w3-col l10">
+				<div class="w3-row">
+					<div class="w3-threequarter">
+						<div id='map' style='width: 100%; height: 88vh;'></div>
+						<div id='marker1'></div>
+					</div>
+					<div class="w3-quarter">&nbsp;</div>
+				</div>
+				<footer class="w3-padding w3-small w3-green w3-bottom">
+					&copy; 2020 Team Global HEARTBEAT
+				</footer>
+				<script>
+					mapboxgl.accessToken = 'pk.eyJ1IjoiZG9jbGlnb3QiLCJhIjoiY2p3MHQ5MTViMGVvNzQzdGdicTlwM2o3NCJ9.j4qYChJYSxUy8hNnlXrD-g';
+
+					var map = new mapboxgl.Map({
+					  container: 'map', // HTML container id
+					  style: 'mapbox://styles/mapbox/dark-v10', // style URL
+					  center: [-79.373405, 43.705116], 
+					// starting position as [lng, lat]
+					  zoom: 6
+					});
+
+					map.addControl(new mapboxgl.NavigationControl());
+
+					var popup = [];
+					var marker = [];
+					var messages = [];
+					var locations = [];
+					var colors = [];
+					var sedac = [];
+					
+					messages.push('<h3>Secret base</h3><p>In Ortigas</p>');
+					messages.push('<h3>Lunch here</h3><p>In Ortigas</p>');
+					
+					locations.push([-79.373405,43.705116]);
+					locations.push([-71.208322,46.82632]);
+					locations.push([-113.505964,53.549474]);
+					locations.push([-123.36684,48.432016]);
+					locations.push([-97.145522,49.89099]);
+					locations.push([-104.620587,50.448638]);
+					locations.push([-63.572583,44.652516]);
+					locations.push([-66.646262,45.964406]);
+					locations.push([-63.134288,46.240833]);
+					locations.push([-52.702139,47.556764]);
+					locations.push([-135.053014,60.728661]);
+					locations.push([-68.517318,63.750632]);
+					locations.push([-114.373734,62.455229]);
+					locations.push([120.9822,14.6042]);
+					locations.push([120.319444,16.618611]);
+					locations.push([121.722849,17.615772]);
+					locations.push([120.684446,15.034251]);
+					locations.push([121.126469,14.191406]);
+					locations.push([123.7353,13.1387]);
+					locations.push([122.564444,10.696944]);
+					locations.push([123.891667,10.311111]);
+					locations.push([125.004722,11.243333]);
+					locations.push([123.437,7.8257]);
+					locations.push([124.643056,8.481111]);
+					locations.push([125.612778,7.073056]);
+					locations.push([124.987427,6.24501]);
+					locations.push([124.246389,7.223611]);
+					locations.push([120.590998,16.417155]);
+					locations.push([125.543611,8.949167]);
+					locations.push([121.179722,13.410833]);
+
+					sedac.push(['gpw-v4:gpw-v4-population-count-rev11_2020']);
+					sedac.push(['gpw-v4:gpw-v4-population-density_2020']);
+					sedac.push(['lulc:lulc-development-threat-index']);
+					sedac.push(['urbanspatial:urbanspatial-urban-extents-viirs-modis-us-2015']);
+					sedac.push(['ndh:ndh-drought-hazard-frequency-distribution']);
+					sedac.push(['ndh:ndh-earthquake-frequency-distribution']);
+					sedac.push(['ndh:ndh-flood-hazard-frequency-distribution']);
+					sedac.push(['ndh:ndh-volcano-hazard-frequency-distribution']);
+					sedac.push(['sdei:sdei-viirs-dmsp-dlight']);
 
 
+					for (i = 0; i < locations.length; i++) {
+						popup[i] = new mapboxgl.Popup()
+						.setHTML(messages[i]);
 
+						marker[i] = new mapboxgl.Marker(colors[i])
+						.setLngLat(locations[i])
+						.setPopup(popup[i])
+						.addTo(map);
+					}
+								
+					function travelTo(location) {
+						var target = locations[location];
+						map.flyTo({center: target, essential: true});
+					}
+					
+					function setStyle(style) {
+						map.setStyle(style);
+					}
+					
+					function setSedac(layer) {
+						
+						if (map.getSource('sedac-layer')) {
+							map.removeLayer('layer1');
+							map.removeSource('sedac-layer');
+						}
+						
+						var sedaclayer = sedac[layer];
+						map.addSource('sedac-layer', {
+							'type': 'raster',
+							'tiles': [					
+								'https://sedac.ciesin.columbia.edu/geoserver/wms?bbox={bbox-epsg-3857}&format=image/png&service=WMS&version=1.1.1&request=GetMap&srs=EPSG:3857&transparent=true&width=256&height=256&layers=' + sedaclayer
+							],
+							'tileSize': 512
+						});
+						map.addLayer({
+								'id': 'layer1',
+								'type': 'raster',
+								'source': 'sedac-layer',
+								'paint': {}
+							}
+						);
+						map.setPaintProperty(
+							'layer1',
+							'raster-opacity',
+							.75
+							);
+					}
+
+				</script>
+			</div>
+		</section>
 	</body>
-
-
-
 </html>

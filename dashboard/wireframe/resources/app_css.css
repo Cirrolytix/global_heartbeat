@@ -18,6 +18,10 @@
 	src: url('RobotoCondensed-Light.ttf');
 }
 
+.agency {
+	font-family: "Agency FB", sans-serif
+}
+
 .roboto {
 	font-family: "Roboto", sans-serif
 }
