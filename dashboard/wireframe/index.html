@@ -1,7 +1,6 @@
 <!DOCTYPE HTML>
 
 <html>
-
 	<head>
 		<title>Global HEARTBEAT</title>
 		<link rel="stylesheet" href="resources/app_css.css"/>
@@ -9,6 +8,14 @@
 		<link rel="shortcut icon" href="favicon.png" type="image/x-icon"/>
 		<script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
 		<link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="title" content="Global HEARTBEAT" />
+		<meta name="description" content="Global HEARTBEAT is an interactive web-portal aimed at providing geo-located information on natural and human hazards surrounding the communities of the Philippines and Canada. Using the tool, users will be able to overlay various satellite layers against socio-economic data gathered by our researchers." />
+		<meta property="og:url" content="https://opendata.org.ph/globalheartbeat" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="Global HEARTBEAT" />
+		<meta property="og:description" content="Global HEARTBEAT is an interactive web-portal aimed at providing geo-located information on natural and human hazards surrounding the communities of the Philippines and Canada. Using the tool, users will be able to overlay various satellite layers against socio-economic data gathered by our researchers." />
+		<meta property="og:image" content="splash.png" />
 	</head>
 
 	<body>
@@ -68,19 +75,19 @@
 				<option value="7">Volcano Hazard</option>
 				<option value="8">Night Lights</option>
 			</select>
-			<div class="w3-bar-item hover-ambient">About</div>
+			<div class="w3-bar-item hover-ambient" onclick="document.getElementById('id01').style.display='block'">About</div>
 		</nav>
 		<section class="w3-row">
 			<div class="w3-col l2">&nbsp;</div>
 			<div class="w3-col l10">
 				<div class="w3-row">
-					<div id="tableContainer" class="w3-col l5">&nbsp;</div>
+					<div id="tableContainer" class="w3-col l5" style="height: 88vh; overflow: auto;">&nbsp;</div>
 					<div class="w3-col l7">
 						<div id='map' style='width: 100%; height: 88vh;'></div>
 						<div id='marker1'></div>
 					</div>
 				</div>
-				<footer class="w3-padding w3-small w3-green w3-bottom">
+				<footer class="w3-padding w3-small w3-green">
 					&copy; 2020 Team Global HEARTBEAT
 				</footer>
 				<script>
@@ -196,7 +203,6 @@
 						xmlhttp.onreadystatechange = function() {
 							if (this.readyState == 4 && this.status == 200) {
 								tableArray = JSON.parse(this.responseText);
-								console.log(tableArray);
 								displayTable(tableArray, location);
 							} 
 						}
@@ -233,8 +239,11 @@
 							table += '<tr><th>Literacy Rate</th><td>' + tableArray[9] + '</td></tr>';
 							table += '<tr><th>Total Healthcare Professionals</th><td>' + tableArray[10] + '</td></tr>';
 							table += '<tr><th>LGU Health Expenditure</th><td>' + tableArray[11] + '</td></tr>';
+							table += '<tr><th>COVID-19 Cases</th><td>' + tableArray[12] + '</td></tr>';
 							table += '<tr><th>Total Population</th><td>' + tableArray[13] + '</td></tr>';
 							table += '<tr><th>Urban Index</th><td>' + tableArray[14] + '</td></tr>';
+							table += '<tr><th>Poverty Incidence</th><td>' + tableArray[15] + '</td></tr>';
+							table += '<tr><th>Dengue Cases</th><td>' + tableArray[16] + '</td></tr>';
 							table += '</table>';
 							document.getElementById('tableContainer').innerHTML = table;
 						}
@@ -276,6 +285,24 @@
 					getTable(0);
 
 				</script>
+			</div>
+		</section>
+		
+		<!-- The Modal -->
+		<section id="id01" class="w3-modal">
+			<div class="w3-modal-content">
+				<div>
+					<div class="w3-green w3-bar"><div class="w3-padding w3-bar-item">About Global HEARTBEAT</div><div onclick="document.getElementById('id01').style.display='none'" class="w3-bar-item w3-button w3-right">Close &times;</div>
+					</div>
+					<div class="w3-padding">
+						<h3>Planet, With People</h3>
+						<p>Satellite data is a rich source of information on our communities. Detailed satellite mapping has been accomplished through the NASA Socioeconomic Data and Applications Center (SEDAC), but much of this information is unknown to researchers and inaccessible to people without specialized tools and training. We are a team from Canada and the Philippines and our mission is to develop an interface to present SEDAC data in a way that can be of tremendous value to users. </p>
+						<h3>Our Solution</h3>
+						<p>Global HEARTBEAT is an interactive web-portal aimed at providing geo-located information on natural and human hazards surrounding the communities of the Philippines and Canada. Using the tool, users will be able to overlay various satellite layers against socio-economic data gathered by our researchers. </p>
+						<h3>How It Works</h3>
+						<p>We combine the NASA SEDAC data with relevant socio-economic statistics. Using the INFORM framework of EU JRC, we present a risk-based information portal on Philippines and Canadian communities. By overlaying socio-economic data with satellite maps, users can be provided with additional ideas on disaster resilience, sustainable community development, and in general is an excellent educational resource on the diversity of our communities. </p>
+					</div>
+				</div>
 			</div>
 		</section>
 	</body>
