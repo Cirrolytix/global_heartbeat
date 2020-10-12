@@ -56,4 +56,16 @@ Columbia University - National Center for Disaster Preparedness (https://ncdp.co
 
 Digital Mapping Tool Aids - Disaster Management (https://goexplorer.org/digital-mapping-tool-aids-disaster-management/)
 
+## Members
 
+The HEARTBEAT team consists of the following: 
+
+* [Cricket Soong](https://www.linkedin.com/in/cricketeer/), Emerging Technologies
+* [Emily Vizmonte](https://www.linkedin.com/in/emily-jo-vizmonte-b7a09380/), Analytics
+* [Rache Melendres](https://www.linkedin.com/in/rachemelendres/), Analytics
+* [Mark Neil Pascual](https://www.linkedin.com/in/markpascual1986/), Full Stack Development, Data Science
+* [Denise Brennan Rieder](#), Medical Researcher
+
+## License
+
+This work is provided under the terms of Creative Commons Attribution 4.0 International ([CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/)) license. 
