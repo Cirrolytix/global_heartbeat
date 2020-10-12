@@ -18,13 +18,21 @@ We are a team from Canada and the Philippines and our mission is to develop an i
 
 ## Our Solution
 
+![The Solution](https://github.com/Cirrolytix/global_heartbeat/blob/master/images/solution.png)
+
 Global HEARTBEAT is an interactive web-portal aimed at providing geo-located information on natural and human hazards surrounding the communities of the Philippines and Canada. Using the tool, users will be able to overlay various satellite layers against socio-economic data gathered by our researchers. 
 
 ## How It Works
 
 We combine the NASA SEDAC data with relevant socio-economic statistics. Using the INFORM framework of EU JRC, we present a risk-based information portal on Philippines and Canadian communities. 
 
+![INFORM](https://github.com/Cirrolytix/global_heartbeat/blob/master/images/INFORM.png)
+
 By overlaying socio-economic data with satellite maps, users can be provided with additional ideas on disaster resilience, sustainable community development, and in general is an excellent educational resource on the diversity of our communities.
+
+![Demo](https://github.com/Cirrolytix/global_heartbeat/blob/master/images/heartbeat_demo.gif)
+
+![Demo](https://github.com/Cirrolytix/global_heartbeat/blob/master/images/heartbeat_demo_2.gif
 
 ## Resources
 
