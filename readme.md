@@ -32,7 +32,7 @@ By overlaying socio-economic data with satellite maps, users can be provided wit
 
 ![Demo](https://github.com/Cirrolytix/global_heartbeat/blob/master/images/heartbeat_demo.gif)
 
-![Demo](https://github.com/Cirrolytix/global_heartbeat/blob/master/images/heartbeat_demo_2.gif
+![Demo](https://github.com/Cirrolytix/global_heartbeat/blob/master/images/heartbeat_demo_2.gif)
 
 ## Resources
 
