@@ -64,8 +64,8 @@ The HEARTBEAT team consists of the following:
 * [Emily Vizmonte](https://www.linkedin.com/in/emily-jo-vizmonte-b7a09380/), Analytics
 * [Rache Melendres](https://www.linkedin.com/in/rachemelendres/), Analytics
 * [Mark Neil Pascual](https://www.linkedin.com/in/markpascual1986/), Full Stack Development, Data Science
-* [Denise Brennan Rieder](#), Medical Researcher
+* [Denise Brennan Rieder](https://www.linkedin.com/in/thesciencemaster/), Medical Researcher
 
 ## License
 
-This work is provided under the terms of Creative Commons Attribution 4.0 International ([CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/)) license. 
+This work is provided under the terms of Creative Commons Attribution Share Alike 4.0 International ([CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/)) license. 
